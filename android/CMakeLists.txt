@@ -25,7 +25,7 @@ add_library(jsicontacts  # <-- Library name
         SHARED
         src/main/cpp/java-bindings/JContactsProvider.cpp
         src/main/cpp/java-bindings/JContact.cpp
-        src/main/cpp/java-bindings/JHashMap.cpp
+        src/main/cpp/java-bindings/JContactsHashMap.cpp
         src/main/cpp/ThreadPool.cpp
         src/main/cpp/nativeInstall.cpp
         src/main/cpp/JSIJNIConversion.cpp

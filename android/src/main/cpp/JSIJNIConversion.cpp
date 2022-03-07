@@ -20,8 +20,8 @@
 #include <jsi/JSIDynamic.h>
 #include <folly/dynamic.h>
 
-#include "java-bindings/JArrayList.h"
-#include "java-bindings/JHashMap.h"
+#include "java-bindings/JContactsArrayList.h"
+#include "java-bindings/JContactsHashMap.h"
 #include "java-bindings/JContact.h"
 #include "ContactHostObject.h"
 
@@ -90,10 +90,10 @@ jsi::Value JSIJNIConversion::convertJNIObjectToJSIValue(jsi::Runtime &runtime, c
       result.setProperty(runtime, "day", jsi::Value(birthday->getDay()));
       return result;
 
-  } else if (object->isInstanceOf(JArrayList<jobject>::javaClassStatic())) {
+  } else if (object->isInstanceOf(JContactsArrayList<jobject>::javaClassStatic())) {
       // ArrayList<E>
 
-      auto arrayList = static_ref_cast<JArrayList<jobject>>(object);
+      auto arrayList = static_ref_cast<JContactsArrayList<jobject>>(object);
       auto size = arrayList->size();
 
       auto result = jsi::Array(runtime, size);
@@ -107,16 +107,16 @@ jsi::Value JSIJNIConversion::convertJNIObjectToJSIValue(jsi::Runtime &runtime, c
   } else if (object->isInstanceOf(react::ReadableArray::javaClassStatic())) {
     // ReadableArray
 
-    static const auto toArrayListFunc = react::ReadableArray::javaClassLocal()->getMethod<JArrayList<jobject>()>("toArrayList");
+    static const auto toArrayListFunc = react::ReadableArray::javaClassLocal()->getMethod<JContactsArrayList<jobject>()>("toArrayList");
 
     // call recursive, this time ArrayList<E>
     auto array = toArrayListFunc(object.get());
     return convertJNIObjectToJSIValue(runtime, array);
 
-  } else if (object->isInstanceOf(jni::JHashMap<jstring, jobject>::javaClassStatic())) {
+  } else if (object->isInstanceOf(jni::JContactsHashMap<jstring, jobject>::javaClassStatic())) {
     // HashMap<K, V>
 
-    auto map = static_ref_cast<jni::JHashMap<jstring, jobject>>(object);
+    auto map = static_ref_cast<jni::JContactsHashMap<jstring, jobject>>(object);
 
     auto result = jsi::Object(runtime);
     for (const auto& entry : *map) {
@@ -132,7 +132,7 @@ jsi::Value JSIJNIConversion::convertJNIObjectToJSIValue(jsi::Runtime &runtime, c
   } else if (object->isInstanceOf(react::ReadableMap::javaClassStatic())) {
       // ReadableMap
 
-      static const auto toHashMapFunc = react::ReadableMap::javaClassLocal()->getMethod<jni::JHashMap<jstring, jobject>()>("toHashMap");
+      static const auto toHashMapFunc = react::ReadableMap::javaClassLocal()->getMethod<jni::JContactsHashMap<jstring, jobject>()>("toHashMap");
 
       // call recursive, this time HashMap<K, V>
       auto hashMap = toHashMapFunc(object.get());

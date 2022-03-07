@@ -1,7 +1,7 @@
 //
 // Created by Marc Rousavy on 25.06.21.
 //
-// Copied from https://github.com/mrousavy/react-native-vision-camera/blob/main/android/src/main/cpp/java-bindings/JHashMap.h
+// Copied from https://github.com/mrousavy/react-native-vision-camera/blob/main/android/src/main/cpp/java-bindings/JContactsHashMap.h
 
 #pragma once
 
@@ -14,10 +14,10 @@ namespace jni {
 
 // TODO: Remove when fbjni 0.2.3 releases.
 template <typename K = jobject, typename V = jobject>
-struct JHashMap : JavaClass<JHashMap<K, V>, JMap<K, V>> {
+struct JContactsHashMap : JavaClass<JContactsHashMap<K, V>, JMap<K, V>> {
   constexpr static auto kJavaDescriptor = "Ljava/util/HashMap;";
 
-  static local_ref<JHashMap<K, V>> create();
+  static local_ref<JContactsHashMap<K, V>> create();
 };
 
 } // namespace jni
