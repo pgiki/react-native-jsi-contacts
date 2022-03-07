@@ -7,7 +7,7 @@
 #include <jni.h>
 #include <fbjni/fbjni.h>
 #include <string>
-#include "JArrayList.h"
+#include "JContactsArrayList.h"
 
 namespace mrousavy {
 
@@ -47,13 +47,13 @@ struct JContact : public JavaClass<JContact> {
     local_ref<jstring> getJobTitle();
     local_ref<jstring> getDepartment();
     local_ref<jstring> getNote();
-    local_ref<JArrayList<JItem::javaobject>> getUrls();
-    local_ref<JArrayList<JItem::javaobject>> getInstantMessengers();
+    local_ref<JContactsArrayList<JItem::javaobject>> getUrls();
+    local_ref<JContactsArrayList<JItem::javaobject>> getInstantMessengers();
     jboolean getHasPhoto();
     local_ref<jstring> getPhotoUri();
-    local_ref<JArrayList<JItem::javaobject>> getEmails();
-    local_ref<JArrayList<JItem::javaobject>> getPhones();
-    local_ref<JArrayList<JPostalAddressItem::javaobject>> getPostalAddresses();
+    local_ref<JContactsArrayList<JItem::javaobject>> getEmails();
+    local_ref<JContactsArrayList<JItem::javaobject>> getPhones();
+    local_ref<JContactsArrayList<JPostalAddressItem::javaobject>> getPostalAddresses();
     local_ref<JBirthday::javaobject> getBirthday();
 };
 

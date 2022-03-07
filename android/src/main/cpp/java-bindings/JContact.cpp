@@ -5,7 +5,7 @@
 #include "JContact.h"
 #include <jni.h>
 #include <fbjni/fbjni.h>
-#include "JArrayList.h"
+#include "JContactsArrayList.h"
 
 namespace mrousavy {
 
@@ -68,13 +68,13 @@ using namespace vision;
         return getFieldValue(field);
     }
 
-    local_ref<JArrayList<JContact::JItem::javaobject>> JContact::getUrls() {
-        auto field = getClass()->getField<JArrayList<JContact::JItem::javaobject>>("urls");
+    local_ref<JContactsArrayList<JContact::JItem::javaobject>> JContact::getUrls() {
+        auto field = getClass()->getField<JContactsArrayList<JContact::JItem::javaobject>>("urls");
         return getFieldValue(field);
     }
 
-    local_ref<JArrayList<JContact::JItem::javaobject>> JContact::getInstantMessengers() {
-        auto field = getClass()->getField<JArrayList<JContact::JItem::javaobject>>("instantMessengers");
+    local_ref<JContactsArrayList<JContact::JItem::javaobject>> JContact::getInstantMessengers() {
+        auto field = getClass()->getField<JContactsArrayList<JContact::JItem::javaobject>>("instantMessengers");
         return getFieldValue(field);
     }
 
@@ -88,18 +88,18 @@ using namespace vision;
         return getFieldValue(field);
     }
 
-    local_ref<JArrayList<JContact::JItem::javaobject>> JContact::getEmails() {
-        auto field = getClass()->getField<JArrayList<JContact::JItem::javaobject>>("emails");
+    local_ref<JContactsArrayList<JContact::JItem::javaobject>> JContact::getEmails() {
+        auto field = getClass()->getField<JContactsArrayList<JContact::JItem::javaobject>>("emails");
         return getFieldValue(field);
     }
 
-    local_ref<JArrayList<JContact::JItem::javaobject>> JContact::getPhones() {
-        auto field = getClass()->getField<JArrayList<JContact::JItem::javaobject>>("phones");
+    local_ref<JContactsArrayList<JContact::JItem::javaobject>> JContact::getPhones() {
+        auto field = getClass()->getField<JContactsArrayList<JContact::JItem::javaobject>>("phones");
         return getFieldValue(field);
     }
 
-    local_ref<JArrayList<JContact::JPostalAddressItem::javaobject>> JContact::getPostalAddresses() {
-        auto field = getClass()->getField<JArrayList<JContact::JPostalAddressItem::javaobject>>("postalAddresses");
+    local_ref<JContactsArrayList<JContact::JPostalAddressItem::javaobject>> JContact::getPostalAddresses() {
+        auto field = getClass()->getField<JContactsArrayList<JContact::JPostalAddressItem::javaobject>>("postalAddresses");
         return getFieldValue(field);
     }
 

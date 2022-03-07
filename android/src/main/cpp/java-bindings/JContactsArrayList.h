@@ -1,7 +1,7 @@
 //
 // Created by Marc Rousavy on 24.06.21.
 //
-// Copied from https://github.com/mrousavy/react-native-vision-camera/blob/main/android/src/main/cpp/java-bindings/JArrayList.h
+// Copied from https://github.com/mrousavy/react-native-vision-camera/blob/main/android/src/main/cpp/java-bindings/JContactsArrayList.h
 
 #pragma once
 
@@ -15,7 +15,7 @@ using namespace jni;
 
 // TODO: Remove when fbjni 0.2.3 releases.
 template <typename E = jobject>
-struct JArrayList : JavaClass<JArrayList<E>, JList<E>> {
+struct JContactsArrayList : JavaClass<JContactsArrayList<E>, JList<E>> {
   constexpr static auto kJavaDescriptor = "Ljava/util/ArrayList;";
 };
 
